@@ -1,0 +1,393 @@
+/* ════════════════════════════════════════════════════════
+   index.css — All styles for our To-Do App
+   CSS Variables (--var-name) let us change colors in ONE
+   place and have them update everywhere automatically.
+   ════════════════════════════════════════════════════════ */
+
+/* Google Font import */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap");
+
+/* ── CSS Variables (Design Tokens) ─────────────────────── */
+:root {
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --surface2: #22222f;
+  --border: #2e2e40;
+  --accent: #7c6aff;
+  --accent-light: #a594ff;
+  --green: #34d399;
+  --red: #f87171;
+  --yellow: #fbbf24;
+  --text: #e8e8f0;
+  --text-muted: #8888aa;
+  --radius: 12px;
+}
+
+/* ── Reset & Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ── App Layout ─────────────────────────────────────────── */
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, #1e1b4b, #1a1a24);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
+
+.header-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.header h1 {
+  font-family: "Syne", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--accent-light), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-subtitle {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+}
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  min-width: 90px;
+}
+
+.stat-number {
+  font-family: "Syne", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-total .stat-number {
+  color: var(--accent-light);
+}
+.stat-pending .stat-number {
+  color: var(--yellow);
+}
+.stat-completed .stat-number {
+  color: var(--green);
+}
+
+/* ── Task Input ─────────────────────────────────────────── */
+.task-input-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.input-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.task-input {
+  flex: 1;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.task-input:focus {
+  border-color: var(--accent);
+}
+.task-input::placeholder {
+  color: var(--text-muted);
+}
+
+.add-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.add-btn:hover {
+  background: var(--accent-light);
+}
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+.error-msg {
+  color: var(--red);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Filter Bar ─────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.25rem;
+}
+
+.filter-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background: var(--surface2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.filter-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ── Task List ──────────────────────────────────────────── */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Task Item ──────────────────────────────────────────── */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  transition:
+    border-color 0.2s,
+    transform 0.15s;
+}
+
+.task-item:hover {
+  border-color: var(--accent);
+  transform: translateX(3px);
+}
+.task-item.completed {
+  opacity: 0.6;
+}
+
+/* Checkbox button */
+.checkbox {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--green);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.checkbox:hover {
+  border-color: var(--green);
+}
+.checkbox.checked {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+/* Task text */
+.task-content {
+  flex: 1;
+}
+
+.task-text {
+  font-size: 1rem;
+}
+.task-text.strikethrough {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* Edit input inside task row */
+.edit-input {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Action buttons */
+.task-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  background: var(--surface2);
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  color: var(--text);
+}
+.btn-edit:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+.btn-delete:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+.btn-save {
+  border-color: var(--green);
+  color: var(--green);
+}
+.btn-cancel {
+  border-color: var(--red);
+  color: var(--red);
+}
+.btn-save:hover {
+  background: var(--green);
+  color: #fff;
+}
+.btn-cancel:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+/* ── Empty State ─────────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
