@@ -1,0 +1,108 @@
+.user-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  transition: box-shadow 0.2s;
+}
+
+.user-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-badge.online {
+  background: #dcfce7;
+  color: #166534;
+}
+.status-badge.offline {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-badge.online .status-dot {
+  background: #166534;
+}
+.status-badge.offline .status-dot {
+  background: #9ca3af;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.avatar-fallback {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #ede9fe;
+  color: #5b21b6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+  border: 2px solid #e5e7eb;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.user-meta {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.follow-btn {
+  margin-top: 6px;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.follow-btn:hover {
+  background: #f9fafb;
+}
+.follow-btn.following {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
