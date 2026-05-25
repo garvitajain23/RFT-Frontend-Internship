@@ -1,0 +1,264 @@
+/* App.css — styles for the App component and its layout */
+
+/* The main white card container */
+.app {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  width: 100%;
+  max-width: 520px; /* never wider than 520px even on big screens */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* The top header area */
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.app-header p {
+  color: #888;
+  font-size: 0.9rem;
+}
+/* ===== AddItemForm styles ===== */
+.add-item-form {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.item-input {
+  flex: 1; /* takes all remaining space */
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: #fafafa;
+}
+
+.item-input:focus {
+  border-color: #667eea; /* purple highlight when user is typing */
+  background: white;
+}
+
+.quantity-input {
+  width: 70px;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: center;
+  background: #fafafa;
+  transition: border-color 0.2s;
+}
+
+.quantity-input:focus {
+  border-color: #667eea;
+  background: white;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition:
+    transform 0.1s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.add-btn:hover {
+  transform: translateY(-1px); /* tiny lift on hover */
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.add-btn:active {
+  transform: translateY(0); /* press down on click */
+}
+
+/* ===== Summary styles ===== */
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #f8f6ff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.summary-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-number {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.bought-count {
+  color: #22c55e; /* green for bought items */
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #aaa;
+}
+
+.summary-divider {
+  width: 1px;
+  height: 30px;
+  background: #e0e0e0;
+}
+
+/* ===== Shopping List styles ===== */
+.shopping-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list-section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #aaa;
+  font-weight: 600;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.bought-label {
+  color: #22c55e;
+}
+
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== Shopping Item styles ===== */
+.shopping-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fafafa;
+  border: 2px solid #f0f0f0;
+  border-radius: 14px;
+  transition: all 0.2s;
+}
+
+.shopping-item:hover {
+  border-color: #e0e0e0;
+  background: white;
+}
+
+/* When an item is bought — dim it and add strikethrough */
+.shopping-item.bought {
+  background: #f0fdf4; /* very light green */
+  border-color: #dcfce7;
+  opacity: 0.7;
+}
+
+.check-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; /* makes it a circle */
+  background: transparent;
+  border: 2px solid #d0d0d0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0; /* don't let it shrink */
+  color: #aaa;
+}
+
+.check-btn.checked {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+
+.item-info {
+  flex: 1; /* take all available middle space */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-name {
+  font-size: 1rem;
+  color: #2d2d2d;
+  font-weight: 500;
+}
+
+/* Strikethrough on bought item names */
+.bought .item-name {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.item-quantity {
+  background: #ede9fe; /* light purple */
+  color: #7c3aed; /* dark purple text */
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px; /* pill shape */
+}
+
+.remove-btn {
+  background: transparent;
+  font-size: 1.1rem;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background: #fee2e2; /* light red background on hover */
+}
+
+/* ===== Empty state styles ===== */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #bbb;
+}
+
+.empty-state p:first-child {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}

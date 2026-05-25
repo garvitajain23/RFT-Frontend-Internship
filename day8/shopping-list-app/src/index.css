@@ -1,0 +1,47 @@
+/* index.css — styles that apply to the WHOLE page, not just one component */
+
+/* CSS Reset: browsers have default styles that look ugly.
+   We zero them out so we start with a clean slate */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* padding/border stay INSIDE width, not outside */
+  margin: 0;
+  padding: 0;
+}
+
+/* body is the entire browser window */
+body {
+  /* Google Fonts — a beautiful modern font */
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh; /* vh = viewport height. 100vh = full screen height */
+  display: flex;
+  align-items: center; /* center vertically */
+  justify-content: center; /* center horizontally */
+  padding: 20px;
+}
+
+/* Remove default list bullet points */
+ul {
+  list-style: none;
+}
+
+/* Make buttons not look ugly by default */
+button {
+  cursor: pointer; /* shows hand cursor on hover */
+  border: none;
+  outline: none;
+  font-family: inherit; /* use same font as the rest of the page */
+}
+
+/* Make inputs look clean */
+input {
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
