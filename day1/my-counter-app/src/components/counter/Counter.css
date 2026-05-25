@@ -1,0 +1,148 @@
+/* src/components/Counter/Counter.css */
+
+/* Main container — centers everything on screen */
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+/* Title */
+.counter-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Step selector area */
+.step-selector {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-dropdown {
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* The big number display */
+.count-display {
+  font-size: 6rem;
+  font-weight: bold;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease; /* Smooth color transition */
+}
+
+/* Color when count is 0 */
+.count-display.zero {
+  background: white;
+  color: #999;
+}
+
+/* Color when count is positive */
+.count-display.positive {
+  background: white;
+  color: #667eea;
+}
+
+/* Button group layout */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Responsive: wraps on small screens */
+  justify-content: center;
+}
+
+/* Base button styles */
+.btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px; /* Pill shape */
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+  min-width: 130px;
+}
+
+/* Button hover effect */
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button click effect */
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Disabled button style */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Individual button colors */
+.btn-increment {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-decrement {
+  background: #f44336;
+  color: white;
+}
+
+.btn-reset {
+  background: #ff9800;
+  color: white;
+}
+
+/* Status message */
+.status-message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+  .counter-title {
+    font-size: 1.8rem;
+  }
+
+  .count-display {
+    font-size: 4rem;
+    width: 150px;
+    height: 150px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    min-width: 110px;
+  }
+}
