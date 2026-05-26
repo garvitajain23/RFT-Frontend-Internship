@@ -1,0 +1,497 @@
+/* ─────────────────────────────────────────────────────────
+   App.css — All styles for the Expense Tracker
+   We use CSS Custom Properties (variables) for consistency.
+   Variables are defined in :root and used everywhere below.
+   ───────────────────────────────────────────────────────── */
+
+/* CSS RESET + VARIABLES */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color palette */
+  --clr-bg: #0f1117;
+  --clr-surface: #1a1d27;
+  --clr-surface-2: #22263a;
+  --clr-border: #2e3347;
+  --clr-primary: #6c63ff;
+  --clr-primary-hover: #5a52d5;
+  --clr-danger: #ff5c5c;
+  --clr-danger-hover: #e04444;
+  --clr-success: #4caf50;
+  --clr-text: #e8eaf6;
+  --clr-text-muted: #8b90a7;
+
+  /* Spacing */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Font */
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--clr-bg);
+}
+
+/* ─── LAYOUT ─── */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--sp-lg);
+}
+
+.app-header {
+  text-align: center;
+  padding: var(--sp-xl) 0 var(--sp-lg);
+}
+
+.app-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6c63ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-subtitle {
+  color: var(--clr-text-muted);
+  margin-top: var(--sp-xs);
+}
+
+.app-main {
+  display: grid;
+  /* Two columns: 360px fixed left, rest on right */
+  grid-template-columns: 360px 1fr;
+  gap: var(--sp-lg);
+  align-items: start;
+}
+
+/* Make it single column on smaller screens */
+@media (max-width: 768px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+/* ─── CARDS ─── */
+.add-expense-card,
+.summary-card,
+.expense-list,
+.filter-bar,
+.empty-state {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--sp-md);
+  color: var(--clr-text);
+}
+
+/* ─── FORM ─── */
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  color: var(--clr-text);
+  padding: 10px var(--sp-md);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--clr-primary);
+}
+
+.form-input option {
+  background: var(--clr-surface-2);
+}
+
+.error-msg {
+  color: var(--clr-danger);
+  font-size: 0.85rem;
+  padding: var(--sp-sm);
+  background: rgba(255, 92, 92, 0.1);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 92, 92, 0.3);
+}
+
+/* ─── BUTTONS ─── */
+.btn {
+  padding: 10px var(--sp-lg);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--clr-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--clr-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--clr-surface-2);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+.btn-secondary:hover {
+  background: var(--clr-border);
+}
+
+/* ─── SUMMARY CARD ─── */
+.summary-card {
+  text-align: center;
+  padding: var(--sp-xl);
+  background: linear-gradient(135deg, #1a1d27, #1e1b4b);
+  border-color: #312e81;
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.summary-amount {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #a78bfa;
+  margin: var(--sp-sm) 0;
+}
+
+.summary-count {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+}
+
+/* ─── FILTER BAR ─── */
+.filter-bar {
+  padding: var(--sp-md);
+}
+
+.filter-label {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+  margin-bottom: var(--sp-sm);
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+}
+
+.filter-btn {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--clr-border);
+  background: transparent;
+  color: var(--clr-text-muted);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover {
+  border-color: var(--clr-primary);
+  color: var(--clr-text);
+}
+
+.filter-btn-active {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  color: white;
+  font-weight: 600;
+}
+
+/* ─── EXPENSE LIST ─── */
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--sp-md);
+}
+
+.expense-list .section-title {
+  padding-bottom: var(--sp-sm);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* ─── EXPENSE ITEM ─── */
+.expense-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  padding: var(--sp-md) var(--sp-sm);
+  border-bottom: 1px solid var(--clr-border);
+  transition: background 0.15s;
+  border-radius: var(--radius-sm);
+}
+.expense-item:last-child {
+  border-bottom: none;
+}
+.expense-item:hover {
+  background: var(--clr-surface-2);
+}
+
+.expense-icon {
+  font-size: 1.6rem;
+  width: 40px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.expense-info {
+  flex: 1;
+  min-width: 0; /* Allows text to truncate properly */
+}
+
+.expense-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Shows "..." if text is too long */
+}
+
+.expense-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-xs);
+  flex-wrap: wrap;
+}
+
+.expense-date {
+  font-size: 0.78rem;
+  color: var(--clr-text-muted);
+}
+
+.expense-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-xs);
+  flex-shrink: 0;
+}
+
+.expense-amount {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--clr-success);
+}
+
+.expense-actions {
+  display: flex;
+  gap: var(--sp-xs);
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: var(--sp-xs);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  opacity: 0.6;
+}
+.btn-icon:hover {
+  background: var(--clr-surface-2);
+  opacity: 1;
+}
+
+/* ─── CATEGORY BADGES ─── */
+.badge {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-food {
+  background: rgba(255, 152, 0, 0.15);
+  color: #ffb74d;
+}
+.badge-transport {
+  background: rgba(33, 150, 243, 0.15);
+  color: #64b5f6;
+}
+.badge-shopping {
+  background: rgba(156, 39, 176, 0.15);
+  color: #ce93d8;
+}
+.badge-health {
+  background: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+}
+.badge-entertainment {
+  background: rgba(233, 30, 99, 0.15);
+  color: #f48fb1;
+}
+.badge-other {
+  background: rgba(158, 158, 158, 0.15);
+  color: #bdbdbd;
+}
+
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  text-align: center;
+  padding: var(--sp-xl);
+  color: var(--clr-text-muted);
+}
+.empty-hint {
+  font-size: 0.85rem;
+  margin-top: var(--sp-sm);
+}
+
+/* ─── MODAL ─── */
+/* The dark overlay that covers the whole screen */
+.modal-backdrop {
+  position: fixed;
+  /*Fixed=staysinplaceevenwhenscrolling*/
+  inset: 0;
+  /*Shorthandfortop:;
+  0,right:;
+  0,bottom:;
+  0,left:;
+  0*/
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /*Veryhighnumber=sitsontopofeverything*/
+  padding: var(--sp-md);
+  -webkit-animation: fadeIn 0.15s ease;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The white box in the center of the modal */
+.modal-box {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-xl);
+  width: 100%;
+  max-width: 480px;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-lg);
+}
+
+.modal-header .section-title {
+  margin-bottom: 0;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--clr-text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: var(--sp-xs);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.modal-close-btn:hover {
+  color: var(--clr-text);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--sp-md);
+  justify-content: flex-end;
+  margin-top: var(--sp-sm);
+}
