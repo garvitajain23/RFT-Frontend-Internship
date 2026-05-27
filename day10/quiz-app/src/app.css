@@ -1,0 +1,749 @@
+/* ============================================================
+   APP.CSS — ALL STYLES FOR THE QUIZ APP
+   ============================================================
+   We use CSS custom properties (variables) defined on :root
+   so we can easily change the whole color theme in one place.
+
+   CSS Custom Properties (variables):
+   - Defined as: --variable-name: value;
+   - Used as: color: var(--variable-name);
+   ============================================================ */
+
+/* ---- Import Google Font ---- */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ---- CSS Variables (Design Tokens) ---- */
+:root {
+  --primary: #6366f1; /* Indigo — main brand color */
+  --primary-dark: #4f46e5;
+  --primary-light: #e0e7ff;
+  --success: #22c55e; /* Green — correct answers */
+  --danger: #ef4444; /* Red — wrong answers */
+  --warning: #f59e0b; /* Amber — timer warning */
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(99, 102, 241, 0.1);
+  --shadow-lg: 0 8px 40px rgba(99, 102, 241, 0.15);
+}
+
+/* ---- Reset & Base ---- */
+/* Box-sizing: border-box means padding is INCLUDED in width/height */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ---- App Layout ---- */
+.app-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden; /* Hide the decorative shapes that go outside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f0fdf4 100%);
+}
+
+/* Decorative background circles (purely visual) */
+.bg-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none; /* Don't block clicks */
+  opacity: 0.07;
+}
+
+.bg-shape-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--primary);
+  top: -200px;
+  right: -200px;
+}
+
+.bg-shape-2 {
+  width: 400px;
+  height: 400px;
+  background: #06b6d4;
+  bottom: -150px;
+  left: -150px;
+}
+
+/* The inner container that holds our cards */
+.app-inner {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  z-index: 1; /* Appear above the background shapes */
+}
+
+/* ============================================================
+   START SCREEN
+   ============================================================ */
+.start-screen {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: slideUp 0.4s ease; /* Entry animation */
+}
+
+/* Keyframe animation: slides up from 20px below, fades in */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.start-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  animation: bounce 1.5s ease infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.start-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.start-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3-column grid for the stats (10 questions / 20s / +1) */
+.start-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.stat-card {
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Name Input */
+.name-input-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.name-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  background: var(--bg);
+}
+
+/* Highlight the input when focused (clicked into) */
+.name-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.start-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    transform 0.1s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.start-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.start-btn:active {
+  transform: translateY(0); /* Press down when clicked */
+}
+
+/* ============================================================
+   QUESTION CARD
+   ============================================================ */
+.question-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease;
+}
+
+/* Header: progress bar on left, score+timer on right */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0; /* Don't let this side shrink */
+}
+
+/* ---- Progress Bar ---- */
+.progress-wrapper {
+  flex: 1; /* Take up remaining space */
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.progress-percent {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* The gray track */
+.progress-track {
+  height: 8px;
+  background: var(--border);
+  border-radius: 99px; /* Fully rounded ends = pill shape */
+  overflow: hidden;
+}
+
+/* The colored fill (width is set dynamically via inline style in JSX) */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), #818cf8);
+  border-radius: 99px;
+  transition: width 0.5s ease; /* Smooth width animation */
+}
+
+/* ---- Score Badge ---- */
+.score-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef3c7; /* Light yellow */
+  border: 1px solid #fde68a;
+  border-radius: 99px;
+  padding: 6px 14px;
+  white-space: nowrap;
+}
+
+.score-icon {
+  font-size: 1rem;
+}
+
+.score-text {
+  font-size: 0.85rem;
+  color: #92400e; /* Dark amber text for contrast */
+}
+
+/* ---- Timer ---- */
+/* Position the number absolutely in the center of the SVG */
+.timer-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.timer-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Perfect centering trick */
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+/* ---- Question ---- */
+.question-section {
+  margin-bottom: 24px;
+}
+
+.question-number-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* ---- Options Grid ---- */
+/* 2-column grid for the 4 answer buttons */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Base option button */
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    transform 0.1s;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Hover effect — only when not answered */
+.option-btn:not([disabled]):hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* Letter badge (A, B, C, D) */
+.option-letter {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.option-text {
+  flex: 1;
+}
+
+/* Correct answer style (green) */
+.option-btn.correct {
+  border-color: var(--success);
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.option-btn.correct .option-letter {
+  background: var(--success);
+  color: white;
+}
+
+/* Wrong selected answer style (red) */
+.option-btn.incorrect {
+  border-color: var(--danger);
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.option-btn.incorrect .option-letter {
+  background: var(--danger);
+  color: white;
+}
+
+/* Other options dimmed after answering */
+.option-btn.dimmed {
+  opacity: 0.45;
+}
+
+/* ---- Feedback Section ---- */
+.feedback-section {
+  animation: slideUp 0.3s ease;
+}
+
+.feedback-message {
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.feedback-correct {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.feedback-incorrect {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.explanation-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  background: #f8fafc;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+}
+
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.next-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   RESULT SCREEN
+   ============================================================ */
+.result-screen {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.4s ease;
+}
+
+.result-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.result-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.result-player {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Grade circle + score number side by side */
+.score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 16px;
+}
+
+/* Large grade letter (A, B, C, D, S) */
+.grade-badge {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.score-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-big {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-total {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.score-percentage {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.result-message {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* 3 stat boxes: Correct / Incorrect / Score % */
+.result-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.result-stat {
+  text-align: center;
+  padding: 16px 8px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.stat-val {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.stat-key {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.correct-color {
+  color: var(--success) !important;
+}
+.incorrect-color {
+  color: var(--danger) !important;
+}
+
+/* ---- Review List ---- */
+.review-section {
+  margin-bottom: 28px;
+}
+
+.review-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Scrollable if many questions */
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px; /* Space for scrollbar */
+}
+
+.review-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.review-correct {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.review-incorrect {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.review-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.review-content {
+  flex: 1;
+}
+
+.review-question {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.review-wrong {
+  font-size: 0.85rem;
+  color: #991b1b;
+  margin-bottom: 2px;
+}
+
+.review-answer {
+  font-size: 0.85rem;
+  color: #166534;
+}
+
+/* ---- Restart Button ---- */
+.restart-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.restart-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN — Mobile adjustments
+   @media queries apply styles only at certain screen sizes
+   ============================================================ */
+@media (max-width: 520px) {
+  .question-card,
+  .start-screen,
+  .result-screen {
+    padding: 20px 16px;
+  }
+
+  /* Stack the options vertically on small screens */
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+  }
+
+  .card-header {
+    flex-wrap: wrap;
+  }
+
+  .start-title {
+    font-size: 1.5rem;
+  }
+}
