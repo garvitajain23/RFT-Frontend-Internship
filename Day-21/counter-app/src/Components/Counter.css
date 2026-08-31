@@ -1,0 +1,67 @@
+.counter-container {
+  max-width: 400px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.count-display {
+  font-size: 80px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #1a1a1a;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.buttons button {
+  padding: 10px 22px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: white;
+}
+
+.buttons button:hover { background: #f0f0f0; }
+.buttons button.reset { color: #555; }
+
+.step-control {
+  background: #f7f7f7;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.step-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.step-presets {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.step-presets button {
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: white;
+  font-size: 13px;
+}
+
+.step-presets button.active {
+  background: #1a73e8;
+  color: white;
+  border-color: transparent;
+}
