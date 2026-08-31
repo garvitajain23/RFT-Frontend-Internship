@@ -1,0 +1,31 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0f1e;
+  --surface: #111827;
+  --card: #1a2235;
+  --border: rgba(99, 179, 237, 0.15);
+  --accent: #63b3ed;
+  --accent2: #f6ad55;
+  --text: #e2e8f0;
+  --muted: #718096;
+  --error: #fc8181;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(99,179,237,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(246,173,85,0.05) 0%, transparent 60%);
+}
+
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
+}
