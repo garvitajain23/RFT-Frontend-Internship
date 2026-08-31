@@ -1,0 +1,270 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  color: #333;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e1e2d;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  min-height: 100vh;
+}
+
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 20px 24px;
+  color: #a78bfa;
+  border-bottom: 1px solid #2d2d3f;
+}
+
+.sidebar nav {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar nav a:hover {
+  background: #2d2d3f;
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: #2d2d3f;
+  color: #a78bfa;
+  border-left: 3px solid #a78bfa;
+}
+
+/* Stat Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.stat-card .label {
+  font-size: 13px;
+  color: #888;
+}
+
+.stat-card .value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e1e2d;
+}
+
+.stat-card .change {
+  font-size: 12px;
+  color: #10b981;
+}
+
+.stat-card .icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+/* Table */
+.table-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.table-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.search-input {
+  padding: 8px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  width: 220px;
+}
+
+.search-input:focus {
+  border-color: #a78bfa;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead tr {
+  background: #f8f8fc;
+}
+
+th {
+  text-align: left;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #555;
+  font-size: 13px;
+}
+
+td {
+  padding: 12px 14px;
+  border-top: 1px solid #f0f0f0;
+  color: #444;
+}
+
+tbody tr:hover {
+  background: #fafafa;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Chart section */
+.chart-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  margin-bottom: 28px;
+}
+
+.chart-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Page heading */
+.page-heading {
+  margin-bottom: 24px;
+}
+
+.page-heading h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e1e2d;
+}
+
+.page-heading p {
+  font-size: 13px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Settings */
+.settings-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.settings-card input {
+  padding: 9px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.settings-card input:focus {
+  border-color: #a78bfa;
+}
+
+.save-btn {
+  background: #a78bfa;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.save-btn:hover {
+  background: #7c3aed;
+}
