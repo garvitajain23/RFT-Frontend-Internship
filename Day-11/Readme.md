@@ -52,7 +52,7 @@ weather-app/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/garvitajain23/RFT-Backend-internship/Day-11.git
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/Day-11.git
 cd weather-app
 ```
 
