@@ -1,6 +1,6 @@
 # EstateX — Real Estate Property Listing Website
 
-> Day 29 of my Frontend Internship at GyanSetu 🚀
+> Day 29 of my Frontend Internship at GyanSetu 
 
 A fully responsive real estate listing web app built with React + Vite.
 
