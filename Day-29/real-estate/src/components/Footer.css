@@ -1,0 +1,79 @@
+.footer {
+  background: var(--navy);
+  padding: 52px 0 0;
+}
+
+[data-theme="dark"] .footer { background: #080f18; }
+
+.footer-inner {
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+
+.footer-brand { flex: 1; min-width: 200px; }
+
+.footer-brand .brand-mark {
+  width: 32px; height: 32px;
+  background: var(--gold);
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 2px;
+  margin-bottom: 6px;
+}
+
+.footer-brand .brand-name {
+  display: inline;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  margin-top: 12px;
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.footer-links { display: flex; gap: 48px; }
+
+.footer-col { display: flex; flex-direction: column; gap: 10px; }
+
+.footer-heading {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  transition: color var(--transition);
+}
+
+.footer-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  padding: 16px 0;
+}
+
+.footer-bottom p {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.75rem;
+  text-align: center;
+}

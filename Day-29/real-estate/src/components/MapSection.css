@@ -1,0 +1,39 @@
+.map-section {
+  background: var(--cream-dark);
+  padding: 64px 0 0;
+}
+
+.map-wrapper { margin-top: 32px; }
+
+.map-popup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+}
+
+.map-popup img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.popup-body { display: flex; flex-direction: column; gap: 4px; }
+
+.popup-body strong { font-size: 0.85rem; font-family: 'Playfair Display', serif; }
+
+.popup-body span { font-size: 0.8rem; color: #C9A84C; font-weight: 600; }
+
+.popup-body button {
+  margin-top: 6px;
+  background: #0F1B2D;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.popup-body button:hover { background: #1a2f4a; }

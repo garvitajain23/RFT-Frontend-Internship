@@ -1,0 +1,102 @@
+.p-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.p-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.p-card-img {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.p-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.p-card:hover .p-card-img img { transform: scale(1.04); }
+
+.p-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.p-badge.sale { background: var(--navy); color: var(--gold); }
+.p-badge.rent { background: var(--gold); color: var(--navy); }
+
+.p-featured {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,0.9);
+  color: var(--navy);
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.p-card-body { padding: 20px; }
+
+.p-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.p-price span { font-size: 0.8rem; font-family: 'Inter', sans-serif; color: var(--slate); }
+
+.p-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.p-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-bottom: 14px;
+}
+
+.p-location svg { flex-shrink: 0; stroke: var(--gold); }
+
+.p-meta {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--cream-dark);
+  padding-top: 14px;
+}
+
+.p-meta span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--slate);
+  font-weight: 500;
+  padding: 0 8px;
+}
+
+.p-meta span + span { border-left: 1px solid var(--cream-dark); }
