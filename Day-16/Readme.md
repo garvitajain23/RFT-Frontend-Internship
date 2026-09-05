@@ -44,7 +44,7 @@ my-blog/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Aman-Sharma-0007/RFT-INTERNSHIP-FRONTEND/tree/main/Day-16
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-16
 
 # 2. Navigate into the project
 cd my-blog
@@ -83,8 +83,8 @@ npm run dev
 
 ## 👤 Author
 
-**Aman Sharma**  
--Gmail: amanshonak16@gmail.com
+** Garvita Jain**  
+-Gmail: garvitajain.in@gmail.com
 
 ## 📌 Internship Info
 
