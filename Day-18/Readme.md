@@ -99,9 +99,9 @@ http://localhost:5173
 
 ## 👨‍💻 Author
 
-**Aman Sharma**
+**Garvita Jain**
 
--Gmail: amanshonak16@gmail.com
+-Gmail: garvitajain.in@gmail.com
 
 
 
