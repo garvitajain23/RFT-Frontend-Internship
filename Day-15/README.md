@@ -63,7 +63,7 @@ random-user-generator/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Aman-Sharma-0007/RFT-INTERNSHIP-FRONTEND/tree/main/Day-15
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-15
 
 # 2. Navigate into the project
 cd random-user-generator
@@ -146,9 +146,9 @@ Output will be in the `dist/` folder.
 
 ## 👨‍💻 Author
 
-**Aman Sharma**
+**Garvita Jain**
 
--Gmail: amanshonak16@gmail.com
+-Gmail: garvitajain.in@gmail.com
 
 
 
