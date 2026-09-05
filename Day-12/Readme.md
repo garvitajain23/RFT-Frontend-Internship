@@ -90,7 +90,7 @@ https://api.github.com/users/{username}/repos
 ## Author
 
 **Aman Sharma**
--Gmail: amanshonak16@gmail.com
+-Gmail: garvitajain.in@gmail.com
 
 
 
