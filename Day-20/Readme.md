@@ -34,7 +34,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/Aman-Sharma-0007/RFT-FRONTEND-INTERNSHIP/tree/main/Day-20.git
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-20.git
 
 # Navigate to project folder
 cd expense-tracker
@@ -65,7 +65,7 @@ npm run dev
 
 ## 👨‍💻 Author
 
-**Aman Sharma**
+**Garvita Jain**
 
 ## 📌 Internship
 
