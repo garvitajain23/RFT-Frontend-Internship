@@ -56,7 +56,7 @@ chat-app/
 ### 1. Clone the repo
 
 ```bash
-git clonehttps://github.com/Aman-Sharma-0007/RFT-FRONTEND-INTERNSHIP/tree/main/Day-19.git
+git clonehttps://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-19.git
 cd chat-app
 ```
 
