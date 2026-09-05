@@ -272,12 +272,12 @@ Some features that can be added in the future:
 
 ## 👨‍💻 Author
 
-**Aman Sharma**
+**Garvita Jain**
 
 B.Tech CSE — Artificial Intelligence & Machine Learning
 
 ### Connect With Me
 
-* GitHub: `https://github.com/Aman-Sharma-0007`
+* GitHub: `https://github.com/garvitajain23`
 
 
