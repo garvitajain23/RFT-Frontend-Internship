@@ -41,7 +41,7 @@ src/
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/Aman-Sharma-0007/RFT-INTERNSHIP-FRONTEND/tree/main/Day-14
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-14
 cd movie-search-app
 ```
 
