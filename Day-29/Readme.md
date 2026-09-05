@@ -29,7 +29,7 @@ A fully responsive real estate listing web app built with React + Vite.
 
 ```bash
 # Clone the repo
-git clone https://github.com/Aman-Sharma-0007/Day-29.git
+git clone https://github.com/garvitajain23/Day-29.git
 cd real-estate
 
 # Install dependencies
@@ -77,4 +77,4 @@ real-estate/
 
 ---
 
-Built by **Aman** · RFT Frontend Internship · Day 29
+Built by **Garvita Jain** · RFT Frontend Internship · Day 29
