@@ -23,7 +23,7 @@ A responsive movie streaming landing page built with React + Vite, powered by th
 
 ## 📦 Installation
 
-git clone https://github.com/Aman-Sharma-0007/RFT-FRONTEND-INTERNSHIP/tree/main/Day-24.git
+git clone https://github.com/garvitajain23/RFT-Frontend-Internship/tree/main/Day-24.git
 cd movie-streaming
 npm install
 
@@ -62,6 +62,6 @@ https://www.themoviedb.org/documentation/api
 
 
 ## Author
-Aman Sharma 
+Garvita Jain
 
 Completed as a part of RFT Frontend Internship Day-24.
