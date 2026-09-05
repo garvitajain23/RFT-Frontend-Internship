@@ -141,7 +141,7 @@ GET https://api.openweathermap.org/data/2.5/weather
 
 ## 🔗 Connect
 
--Gmail: amanshonak16@gmail.com
+-Gmail: garvitajain.in@gmail.com
 
 Hashtags: `#gowaiacademy` `#rftinternship` `#reactjs` `#weatherapp` `#webdevelopment`
 
